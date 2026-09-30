@@ -1,7 +1,29 @@
-# Release review — AEVORI 0.2.x
+# Release review — AEVORI 0.3.0
 
 Reviewed on 2026-09-30. The functionality checks below describe 0.2.0. For 0.2.1, all 36 tests and the production build passed again; rounded branding was visually checked in light/dark/mobile layouts and the new cloud disclosures were checked in the connection dialog. No browser console errors were observed. This records the checks performed; it is not a blanket
 claim that every feature, machine, provider or legal question has been verified.
+
+## English edition (0.3.0)
+
+The application UI, server errors, model prompts, onboarding, offline page,
+privacy page, PWA metadata, and launcher instructions are in English. Existing
+user-written conversations and stored content are preserved. AI responses default
+to English while respecting explicit requests for another language.
+
+- All 36 automated tests and the TypeScript/Vite build pass.
+- Prettier and strict TypeScript checks, including unused declarations, run through
+  `npm run check`. CI runs the same checks on Linux and macOS. Tasks, device
+  readings, shared types, navigation, and modal layout have dedicated modules.
+- HTTP integration tests use a temporary port and health-based readiness, so a
+  running preview does not conflict with the test server.
+- Browser checks cover English onboarding, real local code and agent replies,
+  character editing, settings, memories, rules, tasks, notes, models, team, and
+  Mac-pool pages. The 390-pixel phone layout has no horizontal overflow; the
+  install guide is English. No browser warnings or errors were observed.
+- The README has live build/status badges, a new code banner, and a reply GIF.
+  The GIF is an actual synthetic demo conversation, with original response timing
+  and an added final reading pause. It is not a speed benchmark.
+- The launcher is now named `Start Aevori.command`.
 
 ## Functionality
 

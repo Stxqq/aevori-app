@@ -1,1 +1,1 @@
-export {ShimmeringText} from "./ui/shimmering-text";
+export { ShimmeringText } from './ui/shimmering-text';

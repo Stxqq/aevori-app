@@ -1,6 +1,6 @@
 # Security
 
-AEVORI 0.2 is preview software for local use. Its server binds to loopback and
+AEVORI 0.3 is preview software for local use. Its server binds to loopback and
 checks Host/Origin before private API access. Remote use requires deliberately
 configured HTTPS and an invitation. Do not expose Ollama or the local port
 through an unauthenticated proxy.

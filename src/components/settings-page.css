@@ -1,62 +1,504 @@
 /* Full-page preferences, using the same quiet surfaces as the AEVORI workspace. */
-.aevori-shell .main-content.view-settings{background:var(--panel);padding:24px clamp(22px,3.2vw,48px) 48px}
-.settings-page{max-width:1130px;margin:0 auto;color:var(--text)}
-.settings-page-heading{margin-bottom:24px}
-.settings-page-heading h1{font-size:34px;line-height:1.2;font-weight:550;letter-spacing:-1.2px}
-.settings-page-heading p{font-size:13px;color:var(--muted);line-height:1.6;margin-top:9px}
-.settings-tabs{display:flex;gap:25px;border-bottom:1px solid var(--border);overflow-x:auto;scrollbar-width:none;margin-bottom:25px;padding:0 2px}
-.settings-tabs::-webkit-scrollbar{display:none}
-.settings-tabs>button{position:relative;flex-shrink:0;background:transparent;border:0;border-bottom:2px solid transparent;border-radius:0;padding:12px 0 14px;font-size:13px;font-weight:500;color:var(--muted)}
-.settings-tabs>button[data-state=active]{border-bottom-color:var(--text);color:var(--text);font-weight:600}
-.settings-tabs>button:hover{color:var(--text)}
-.settings-tabs>button:focus-visible{outline-offset:-3px;border-radius:5px}
-.settings-panel{display:flex;flex-direction:column;gap:16px;outline:none}
-.settings-panel[data-state=inactive]{display:none}
-.settings-section{display:grid;grid-template-columns:minmax(150px,23%) minmax(0,1fr);gap:24px;background:var(--app);border-radius:13px;padding:18px}
-.settings-section-label{padding:4px 0 0 2px}
-.settings-section-label h2{font-size:14px;font-weight:600;letter-spacing:-.2px;line-height:1.4}
-.settings-section-label p{color:var(--muted);font-size:12px;line-height:1.65;margin-top:9px;max-width:24ch}
-.settings-section-body{background:var(--panel);border:1px solid var(--border);border-radius:10px;padding:18px;min-width:0;overflow-wrap:anywhere}
-.settings-profile-identity,.settings-agent-identity{display:flex;align-items:center;gap:15px;min-width:0}
-.settings-profile-identity>div,.settings-agent-identity>div{flex:1;min-width:0}
-.settings-agent-identity>div{min-width:110px}
-.settings-profile-identity strong,.settings-agent-identity strong{display:block;font-size:16px;font-weight:600;line-height:1.4;overflow-wrap:anywhere}
-.settings-profile-identity p,.settings-agent-identity p{font-size:12px;color:var(--muted);line-height:1.5;margin-top:4px}
-.settings-profile-avatar{display:grid;place-items:center;width:48px;height:48px;border-radius:50%;border:1px solid var(--border);background:var(--app);font-size:20px;font-weight:600;flex-shrink:0}
-.settings-badge{display:flex;align-items:center;gap:6px;flex-shrink:0;border:1px solid var(--border);border-radius:20px;font-size:10px;color:var(--muted);padding:6px 9px}
-.settings-section .profile-form{background:transparent;border:0;padding:0;margin:0}
-.settings-section .profile-form>label,.settings-name-form>label{display:block;font-size:12px;font-weight:550;margin-bottom:10px}
-.settings-section .profile-form input,.settings-name-form input{min-width:0;flex:1;width:100%;font-size:13px;border:1px solid var(--border);padding:11px 12px;background:transparent;border-radius:10px}
-.settings-section .profile-form>div,.settings-name-form>div{display:flex;gap:10px}
-.settings-section .profile-form button,.settings-section .primary{box-shadow:none}
-.settings-section .profile-form>p{margin-top:11px;font-size:11px;line-height:1.6;color:var(--muted)}
-.settings-name-form{margin-top:18px;padding-top:18px;border-top:1px solid var(--line)}
-.settings-section .secondary{display:inline-flex;align-items:center;justify-content:center;gap:8px;font-size:11px;font-weight:500;line-height:1.4;padding:10px 12px;box-shadow:none;background:transparent;text-decoration:none;border-radius:8px;flex-shrink:0}
-.settings-section .secondary:hover{background:var(--app)}
-.settings-section .primary{font-size:11px;border-radius:8px;padding:10px 15px}
-.settings-section .settings-text-link{display:inline-flex;align-items:center;gap:5px;padding:0;background:transparent;border:0;border-radius:4px;font-size:11px;color:var(--muted);margin-top:16px;min-height:26px}
-.settings-text-link:hover{color:var(--text)}
-.settings-companion{flex-shrink:0;display:grid;place-items:center;width:90px;height:88px;border-radius:12px;background:var(--app)}
-.settings-agent-identity{gap:15px}
-.settings-action-row{display:flex;align-items:center;gap:13px;min-width:0}
-.settings-action-row>div{flex:1 1 190px;min-width:0}
-.settings-action-row strong,.preference-row strong{font-size:13px;font-weight:550;line-height:1.5;display:block}
-.settings-action-row p,.preference-row p{font-size:12px;color:var(--muted);line-height:1.6;margin-top:5px}
-.settings-action-row+.settings-action-row,.preference-row+.preference-row{margin-top:18px;padding-top:18px;border-top:1px solid var(--line)}
-.settings-row-icon{width:36px;height:36px;border-radius:8px;display:grid;place-items:center;background:var(--app);color:var(--muted);flex-shrink:0}
-.preference-row{display:flex;align-items:center;justify-content:space-between;gap:24px}
-.preference-row .toggle{flex-shrink:0}
-.settings-page .settings-theme-choices{margin:0;gap:12px}
-.settings-page .theme-choice{padding:8px;border-radius:11px;min-width:0}
-.settings-page .theme-choice>span:last-child{font-size:12px;padding:7px 3px 0;min-height:30px}
-.settings-content-counts{display:grid;grid-template-columns:repeat(3,1fr);gap:15px;padding-bottom:21px;margin-bottom:18px;border-bottom:1px solid var(--line)}
-.settings-content-counts strong{font-size:25px;font-weight:550;letter-spacing:-.5px;display:block;line-height:1.2}
-.settings-content-counts span{font-size:11px;color:var(--muted);display:block;margin-top:6px}
-.settings-note{font-size:11px;line-height:1.7;color:var(--muted);border-top:1px solid var(--line);padding-top:16px;margin-top:18px}
-.settings-empty,.settings-loading{font-size:12px;color:var(--muted);line-height:1.65}
-.settings-restore-list>div{display:flex;justify-content:space-between;align-items:center;gap:15px;font-size:12px}
-.settings-restore-list>div+div{border-top:1px solid var(--line);padding-top:12px;margin-top:12px}
-.settings-restore-list>div>span{min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
-@media(max-width:760px){.settings-agent-identity{display:grid;grid-template-columns:66px minmax(0,1fr);gap:13px}.settings-agent-identity>div{min-width:0}.settings-agent-identity>.secondary{grid-column:1/-1;justify-self:end;max-width:100%;margin-left:0}}
-@media(max-width:1100px){.settings-section{grid-template-columns:165px minmax(0,1fr);gap:16px;padding:15px}.settings-section-body{padding:16px}.settings-badge{display:none}.settings-agent-identity{flex-wrap:wrap}.settings-agent-identity .secondary{margin-left:auto}.settings-companion{width:74px;height:74px}.settings-companion>.companion{width:66px!important;height:66px!important}.settings-action-row{flex-wrap:wrap}.settings-action-row>.secondary{margin-left:auto}.settings-tabs{gap:20px}}
-@media(max-width:760px){.aevori-shell .main-content.view-settings{padding:19px 16px 30px}.settings-page-heading{margin-bottom:18px}.settings-page-heading h1{font-size:29px}.settings-page-heading p{font-size:12px}.settings-tabs{gap:22px;margin-bottom:20px}.settings-tabs>button{font-size:12px;min-height:44px}.settings-section{display:block;padding:15px}.settings-section-label{padding:0 1px 14px}.settings-section-label p{max-width:none;margin-top:5px;font-size:12px}.settings-section-body{padding:16px}.settings-section .profile-form>div,.settings-name-form>div{flex-wrap:wrap}.settings-section .profile-form input,.settings-name-form input{flex-basis:100%}.settings-section .profile-form button,.settings-name-form button{margin-left:auto;min-height:40px}.settings-companion{width:66px;height:66px}.settings-agent-identity .secondary{margin-top:2px}.settings-action-row>.secondary{margin-top:5px;min-height:40px}.settings-page .settings-theme-choices{gap:7px}.settings-page .theme-choice{padding:5px}.settings-page .appearance-preview{height:78px;padding:9px 3px 0}.settings-page .preview-content{padding:4px 3px}.settings-page .theme-choice>span:last-child{font-size:11px}.settings-restore-list>div{flex-wrap:wrap}.settings-restore-list .secondary{margin-left:auto}.preference-row{gap:16px}}
+.aevori-shell .main-content.view-settings {
+  background: var(--panel);
+  padding: 24px clamp(22px, 3.2vw, 48px) 48px;
+}
+.settings-page {
+  max-width: 1130px;
+  margin: 0 auto;
+  color: var(--text);
+}
+.settings-page-heading {
+  margin-bottom: 24px;
+}
+.settings-page-heading h1 {
+  font-size: 34px;
+  line-height: 1.2;
+  font-weight: 550;
+  letter-spacing: -1.2px;
+}
+.settings-page-heading p {
+  font-size: 13px;
+  color: var(--muted);
+  line-height: 1.6;
+  margin-top: 9px;
+}
+.settings-tabs {
+  display: flex;
+  gap: 25px;
+  border-bottom: 1px solid var(--border);
+  overflow-x: auto;
+  scrollbar-width: none;
+  margin-bottom: 25px;
+  padding: 0 2px;
+}
+.settings-tabs::-webkit-scrollbar {
+  display: none;
+}
+.settings-tabs > button {
+  position: relative;
+  flex-shrink: 0;
+  background: transparent;
+  border: 0;
+  border-bottom: 2px solid transparent;
+  border-radius: 0;
+  padding: 12px 0 14px;
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--muted);
+}
+.settings-tabs > button[data-state='active'] {
+  border-bottom-color: var(--text);
+  color: var(--text);
+  font-weight: 600;
+}
+.settings-tabs > button:hover {
+  color: var(--text);
+}
+.settings-tabs > button:focus-visible {
+  outline-offset: -3px;
+  border-radius: 5px;
+}
+.settings-panel {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  outline: none;
+}
+.settings-panel[data-state='inactive'] {
+  display: none;
+}
+.settings-section {
+  display: grid;
+  grid-template-columns: minmax(150px, 23%) minmax(0, 1fr);
+  gap: 24px;
+  background: var(--app);
+  border-radius: 13px;
+  padding: 18px;
+}
+.settings-section-label {
+  padding: 4px 0 0 2px;
+}
+.settings-section-label h2 {
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: -0.2px;
+  line-height: 1.4;
+}
+.settings-section-label p {
+  color: var(--muted);
+  font-size: 12px;
+  line-height: 1.65;
+  margin-top: 9px;
+  max-width: 24ch;
+}
+.settings-section-body {
+  background: var(--panel);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 18px;
+  min-width: 0;
+  overflow-wrap: anywhere;
+}
+.settings-profile-identity,
+.settings-agent-identity {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  min-width: 0;
+}
+.settings-profile-identity > div,
+.settings-agent-identity > div {
+  flex: 1;
+  min-width: 0;
+}
+.settings-agent-identity > div {
+  min-width: 110px;
+}
+.settings-profile-identity strong,
+.settings-agent-identity strong {
+  display: block;
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 1.4;
+  overflow-wrap: anywhere;
+}
+.settings-profile-identity p,
+.settings-agent-identity p {
+  font-size: 12px;
+  color: var(--muted);
+  line-height: 1.5;
+  margin-top: 4px;
+}
+.settings-profile-avatar {
+  display: grid;
+  place-items: center;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  border: 1px solid var(--border);
+  background: var(--app);
+  font-size: 20px;
+  font-weight: 600;
+  flex-shrink: 0;
+}
+.settings-badge {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  flex-shrink: 0;
+  border: 1px solid var(--border);
+  border-radius: 20px;
+  font-size: 10px;
+  color: var(--muted);
+  padding: 6px 9px;
+}
+.settings-section .profile-form {
+  background: transparent;
+  border: 0;
+  padding: 0;
+  margin: 0;
+}
+.settings-section .profile-form > label,
+.settings-name-form > label {
+  display: block;
+  font-size: 12px;
+  font-weight: 550;
+  margin-bottom: 10px;
+}
+.settings-section .profile-form input,
+.settings-name-form input {
+  min-width: 0;
+  flex: 1;
+  width: 100%;
+  font-size: 13px;
+  border: 1px solid var(--border);
+  padding: 11px 12px;
+  background: transparent;
+  border-radius: 10px;
+}
+.settings-section .profile-form > div,
+.settings-name-form > div {
+  display: flex;
+  gap: 10px;
+}
+.settings-section .profile-form button,
+.settings-section .primary {
+  box-shadow: none;
+}
+.settings-section .profile-form > p {
+  margin-top: 11px;
+  font-size: 11px;
+  line-height: 1.6;
+  color: var(--muted);
+}
+.settings-name-form {
+  margin-top: 18px;
+  padding-top: 18px;
+  border-top: 1px solid var(--line);
+}
+.settings-section .secondary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  font-size: 11px;
+  font-weight: 500;
+  line-height: 1.4;
+  padding: 10px 12px;
+  box-shadow: none;
+  background: transparent;
+  text-decoration: none;
+  border-radius: 8px;
+  flex-shrink: 0;
+}
+.settings-section .secondary:hover {
+  background: var(--app);
+}
+.settings-section .primary {
+  font-size: 11px;
+  border-radius: 8px;
+  padding: 10px 15px;
+}
+.settings-section .settings-text-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  padding: 0;
+  background: transparent;
+  border: 0;
+  border-radius: 4px;
+  font-size: 11px;
+  color: var(--muted);
+  margin-top: 16px;
+  min-height: 26px;
+}
+.settings-text-link:hover {
+  color: var(--text);
+}
+.settings-companion {
+  flex-shrink: 0;
+  display: grid;
+  place-items: center;
+  width: 90px;
+  height: 88px;
+  border-radius: 12px;
+  background: var(--app);
+}
+.settings-agent-identity {
+  gap: 15px;
+}
+.settings-action-row {
+  display: flex;
+  align-items: center;
+  gap: 13px;
+  min-width: 0;
+}
+.settings-action-row > div {
+  flex: 1 1 190px;
+  min-width: 0;
+}
+.settings-action-row strong,
+.preference-row strong {
+  font-size: 13px;
+  font-weight: 550;
+  line-height: 1.5;
+  display: block;
+}
+.settings-action-row p,
+.preference-row p {
+  font-size: 12px;
+  color: var(--muted);
+  line-height: 1.6;
+  margin-top: 5px;
+}
+.settings-action-row + .settings-action-row,
+.preference-row + .preference-row {
+  margin-top: 18px;
+  padding-top: 18px;
+  border-top: 1px solid var(--line);
+}
+.settings-row-icon {
+  width: 36px;
+  height: 36px;
+  border-radius: 8px;
+  display: grid;
+  place-items: center;
+  background: var(--app);
+  color: var(--muted);
+  flex-shrink: 0;
+}
+.preference-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+}
+.preference-row .toggle {
+  flex-shrink: 0;
+}
+.settings-page .settings-theme-choices {
+  margin: 0;
+  gap: 12px;
+}
+.settings-page .theme-choice {
+  padding: 8px;
+  border-radius: 11px;
+  min-width: 0;
+}
+.settings-page .theme-choice > span:last-child {
+  font-size: 12px;
+  padding: 7px 3px 0;
+  min-height: 30px;
+}
+.settings-content-counts {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 15px;
+  padding-bottom: 21px;
+  margin-bottom: 18px;
+  border-bottom: 1px solid var(--line);
+}
+.settings-content-counts strong {
+  font-size: 25px;
+  font-weight: 550;
+  letter-spacing: -0.5px;
+  display: block;
+  line-height: 1.2;
+}
+.settings-content-counts span {
+  font-size: 11px;
+  color: var(--muted);
+  display: block;
+  margin-top: 6px;
+}
+.settings-note {
+  font-size: 11px;
+  line-height: 1.7;
+  color: var(--muted);
+  border-top: 1px solid var(--line);
+  padding-top: 16px;
+  margin-top: 18px;
+}
+.settings-empty,
+.settings-loading {
+  font-size: 12px;
+  color: var(--muted);
+  line-height: 1.65;
+}
+.settings-restore-list > div {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 15px;
+  font-size: 12px;
+}
+.settings-restore-list > div + div {
+  border-top: 1px solid var(--line);
+  padding-top: 12px;
+  margin-top: 12px;
+}
+.settings-restore-list > div > span {
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+@media (max-width: 760px) {
+  .settings-agent-identity {
+    display: grid;
+    grid-template-columns: 66px minmax(0, 1fr);
+    gap: 13px;
+  }
+  .settings-agent-identity > div {
+    min-width: 0;
+  }
+  .settings-agent-identity > .secondary {
+    grid-column: 1/-1;
+    justify-self: end;
+    max-width: 100%;
+    margin-left: 0;
+  }
+}
+@media (max-width: 1100px) {
+  .settings-section {
+    grid-template-columns: 165px minmax(0, 1fr);
+    gap: 16px;
+    padding: 15px;
+  }
+  .settings-section-body {
+    padding: 16px;
+  }
+  .settings-badge {
+    display: none;
+  }
+  .settings-agent-identity {
+    flex-wrap: wrap;
+  }
+  .settings-agent-identity .secondary {
+    margin-left: auto;
+  }
+  .settings-companion {
+    width: 74px;
+    height: 74px;
+  }
+  .settings-companion > .companion {
+    width: 66px !important;
+    height: 66px !important;
+  }
+  .settings-action-row {
+    flex-wrap: wrap;
+  }
+  .settings-action-row > .secondary {
+    margin-left: auto;
+  }
+  .settings-tabs {
+    gap: 20px;
+  }
+}
+@media (max-width: 760px) {
+  .aevori-shell .main-content.view-settings {
+    padding: 19px 16px 30px;
+  }
+  .settings-page-heading {
+    margin-bottom: 18px;
+  }
+  .settings-page-heading h1 {
+    font-size: 29px;
+  }
+  .settings-page-heading p {
+    font-size: 12px;
+  }
+  .settings-tabs {
+    gap: 22px;
+    margin-bottom: 20px;
+  }
+  .settings-tabs > button {
+    font-size: 12px;
+    min-height: 44px;
+  }
+  .settings-section {
+    display: block;
+    padding: 15px;
+  }
+  .settings-section-label {
+    padding: 0 1px 14px;
+  }
+  .settings-section-label p {
+    max-width: none;
+    margin-top: 5px;
+    font-size: 12px;
+  }
+  .settings-section-body {
+    padding: 16px;
+  }
+  .settings-section .profile-form > div,
+  .settings-name-form > div {
+    flex-wrap: wrap;
+  }
+  .settings-section .profile-form input,
+  .settings-name-form input {
+    flex-basis: 100%;
+  }
+  .settings-section .profile-form button,
+  .settings-name-form button {
+    margin-left: auto;
+    min-height: 40px;
+  }
+  .settings-companion {
+    width: 66px;
+    height: 66px;
+  }
+  .settings-agent-identity .secondary {
+    margin-top: 2px;
+  }
+  .settings-action-row > .secondary {
+    margin-top: 5px;
+    min-height: 40px;
+  }
+  .settings-page .settings-theme-choices {
+    gap: 7px;
+  }
+  .settings-page .theme-choice {
+    padding: 5px;
+  }
+  .settings-page .appearance-preview {
+    height: 78px;
+    padding: 9px 3px 0;
+  }
+  .settings-page .preview-content {
+    padding: 4px 3px;
+  }
+  .settings-page .theme-choice > span:last-child {
+    font-size: 11px;
+  }
+  .settings-restore-list > div {
+    flex-wrap: wrap;
+  }
+  .settings-restore-list .secondary {
+    margin-left: auto;
+  }
+  .preference-row {
+    gap: 16px;
+  }
+}

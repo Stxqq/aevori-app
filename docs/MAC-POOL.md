@@ -1,26 +1,35 @@
-# Mehrere Macs verbinden
+# Connect several Macs
 
-Jeder Mac führt ein eigenes Modell aus. Aevori verteilt vollständige Anfragen an freie Rechner und zeigt den ausführenden Mac an der Antwort. Der Pool unterstützt bis zu acht Rechner und vereint keinen Arbeitsspeicher.
+Each Mac runs its own model. Aevori routes complete requests to available machines
+and shows which Mac answered. The pool supports up to eight machines and does
+not combine their memory.
 
-## Einrichtung
+## Setup
 
-1. Das private Repository auf jedem Mac klonen, `npm ci`, `npm run build` und `npm start` ausführen. Ollama starten und mindestens ein Modell installieren.
-2. Auf dem zusätzlichen Mac unter **Mac-Pool → Freigabe einrichten** einen Sitzungsschlüssel erstellen.
-3. Auf dem steuernden Mac einen SSH-Tunnel öffnen. Dazu muss auf dem zusätzlichen Mac bereits Remote Login eingerichtet sein:
+1. Launch the latest AEVORI release on each Mac, or clone the public repository and run `npm ci`, `npm run build`, and `npm start`. Start Ollama and install at least one model.
+2. On the additional Mac, create a session key under **Mac pool → Set up sharing**.
+3. Open an SSH tunnel on the controlling Mac. Remote Login must already be configured on the additional Mac:
 
    ```sh
-   ssh -N -L 5191:127.0.0.1:5190 BENUTZER@MAC.local
+   ssh -N -L 5191:127.0.0.1:5190 USER@MAC.local
    ```
 
-4. Auf dem steuernden Mac **Mac-Pool → Mac verbinden** wählen. Namen, Adresse `http://127.0.0.1:5191` und Verbindungsschlüssel eintragen. Für weitere Macs andere lokale Ports verwenden, etwa 5192 oder 5193. Alternativ kann eine bereits gesicherte HTTPS-Adresse verwendet werden.
-5. Im Chat **Mac-Pool** auswählen. „Automatisch“ nimmt ein verfügbares Modell des zugeteilten Macs. Bildanfragen werden nur zu ausdrücklich bildfähigen Modellen geleitet.
+4. On the controlling Mac, choose **Mac pool → Connect a Mac**. Enter its name, `http://127.0.0.1:5191`, and the connection key. Each additional Mac needs a different local port, such as 5192 or 5193. An already secured HTTPS address also works.
+5. Choose **Mac pool** in the chat's model selector. Automatic routing picks an available model on the assigned Mac. Image requests only go to models that explicitly report image support.
 
-## Verhalten und Grenzen
+## Behavior and limits
 
-Freie Rechner werden bevorzugt; bei gleicher Belegung wechselt die Zuteilung. Fällt ein Rechner vor Antwortbeginn aus, kann Aevori einen anderen versuchen. Nach Beginn des Streams wird bei einem Fehler abgebrochen, damit keine Antworten verschiedener Modelle vermischt werden.
+Available machines take priority. Equally busy machines rotate. If a machine
+fails before a response begins, Aevori can try another one. Once streaming starts,
+a failure stops the response so outputs from different models are not mixed.
 
-Freigaben und verbundene Rechner gelten für die laufende Sitzung und müssen nach einem Serverneustart neu eingerichtet werden. Verbindungsschlüssel erlauben Modellanfragen und kompakte Gerätestatistiken, keine Datei- oder Prozesssteuerung. Schlüssel nicht in Git, Screenshots oder öffentliche Nachrichten aufnehmen.
+Sharing and connected machines last for the current session and must be set up
+again after a server restart. Connection keys allow model requests and compact
+device statistics, not file or process control. Keep keys out of Git, screenshots,
+and public messages.
 
-Aevori aktiviert weder Remote Login noch öffentliche Ports. `.aevori/` niemals zwischen Rechnern kopieren. Alle beteiligten Macs benötigen die aktuelle Aevori-Version, damit Modellfähigkeiten einschließlich Bildanalyse korrekt übertragen werden.
+Aevori does not enable Remote Login or open public ports. Never copy `.aevori/`
+between computers. All participating Macs need the current Aevori version so
+model capabilities, including image support, are reported correctly.
 
-[Zurück zu Aevori](../README.md) · [Freunde über HTTPS einladen](../ONLINE.md)
+[Back to Aevori](../README.md) · [Invite friends over HTTPS](../ONLINE.md)

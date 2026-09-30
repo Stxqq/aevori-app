@@ -1,35 +1,35 @@
-"use client"
+'use client';
 
-import React, { useMemo, useRef, useState, useEffect } from "react"
-import { motion, useInView, useReducedMotion, type UseInViewOptions } from "motion/react"
+import { motion, useInView, useReducedMotion, type UseInViewOptions } from 'motion/react';
+import React, { useEffect, useMemo, useRef, useState } from 'react';
 
-import { cn } from "@/lib/utils"
+import { cn } from '@/lib/utils';
 
 interface ShimmeringTextProps {
   /** Text to display with shimmer effect */
-  text: string
+  text: string;
   /** Animation duration in seconds */
-  duration?: number
+  duration?: number;
   /** Delay before starting animation */
-  delay?: number
+  delay?: number;
   /** Whether to repeat the animation */
-  repeat?: boolean
+  repeat?: boolean;
   /** Pause duration between repeats in seconds */
-  repeatDelay?: number
+  repeatDelay?: number;
   /** Custom className */
-  className?: string
+  className?: string;
   /** Whether to start animation when component enters viewport */
-  startOnView?: boolean
+  startOnView?: boolean;
   /** Whether to animate only once */
-  once?: boolean
+  once?: boolean;
   /** Margin for in-view detection (rootMargin) */
-  inViewMargin?: UseInViewOptions["margin"]
+  inViewMargin?: UseInViewOptions['margin'];
   /** Shimmer spread multiplier */
-  spread?: number
+  spread?: number;
   /** Base text color */
-  color?: string
+  color?: string;
   /** Shimmer gradient color */
-  shimmerColor?: string
+  shimmerColor?: string;
 }
 
 export function ShimmeringText({
@@ -47,49 +47,53 @@ export function ShimmeringText({
   shimmerColor,
 }: ShimmeringTextProps) {
   const reduced = useReducedMotion();
-  const [enabled, setEnabled] = useState(document.documentElement.dataset.motion !== "off");
-  useEffect(() => { const sync=()=>setEnabled(document.documentElement.dataset.motion !== "off"); window.addEventListener("aevori-motion-change",sync); return ()=>window.removeEventListener("aevori-motion-change",sync); }, []);
-  const ref = useRef<HTMLSpanElement>(null)
-  const isInView = useInView(ref, { once, margin: inViewMargin })
+  const [enabled, setEnabled] = useState(document.documentElement.dataset.motion !== 'off');
+  useEffect(() => {
+    const sync = () => setEnabled(document.documentElement.dataset.motion !== 'off');
+    window.addEventListener('aevori-motion-change', sync);
+    return () => window.removeEventListener('aevori-motion-change', sync);
+  }, []);
+  const ref = useRef<HTMLSpanElement>(null);
+  const isInView = useInView(ref, { once, margin: inViewMargin });
 
   // Calculate dynamic spread based on text length
   const dynamicSpread = useMemo(() => {
-    return text.length * spread
-  }, [text, spread])
+    return text.length * spread;
+  }, [text, spread]);
 
   // Determine if we should start animation
-  const shouldAnimate = (!startOnView || isInView) && !reduced && enabled
+  const shouldAnimate = (!startOnView || isInView) && !reduced && enabled;
 
   return (
     <motion.span
       ref={ref}
       className={cn(
-        "relative inline-block bg-[length:250%_100%,auto] bg-clip-text text-transparent",
-        "[--base-color:var(--muted-foreground)] [--shimmer-color:var(--foreground)]",
-        "[background-repeat:no-repeat,padding-box]",
-        "[--shimmer-bg:linear-gradient(90deg,transparent_calc(50%-var(--spread)),var(--shimmer-color),transparent_calc(50%+var(--spread)))]",
-        "dark:[--base-color:var(--muted-foreground)] dark:[--shimmer-color:var(--foreground)]",
-        className
+        'relative inline-block bg-[length:250%_100%,auto] bg-clip-text text-transparent',
+        '[--base-color:var(--muted-foreground)] [--shimmer-color:var(--foreground)]',
+        '[background-repeat:no-repeat,padding-box]',
+        '[--shimmer-bg:linear-gradient(90deg,transparent_calc(50%-var(--spread)),var(--shimmer-color),transparent_calc(50%+var(--spread)))]',
+        'dark:[--base-color:var(--muted-foreground)] dark:[--shimmer-color:var(--foreground)]',
+        className,
       )}
       style={
         {
-          "--spread": `${dynamicSpread}px`,
-          ...(color && { "--base-color": color }),
-          ...(shimmerColor && { "--shimmer-color": shimmerColor }),
+          '--spread': `${dynamicSpread}px`,
+          ...(color && { '--base-color': color }),
+          ...(shimmerColor && { '--shimmer-color': shimmerColor }),
           backgroundImage: `var(--shimmer-bg), linear-gradient(var(--base-color), var(--base-color))`,
         } as React.CSSProperties
       }
       initial={{
-        backgroundPosition: "100% center",
+        backgroundPosition: '100% center',
         opacity: 0,
       }}
       animate={
         shouldAnimate
           ? {
-              backgroundPosition: "0% center",
+              backgroundPosition: '0% center',
               opacity: 1,
             }
-          : { opacity: 1, backgroundPosition: "100% center" }
+          : { opacity: 1, backgroundPosition: '100% center' }
       }
       transition={{
         backgroundPosition: {
@@ -97,7 +101,7 @@ export function ShimmeringText({
           duration,
           delay,
           repeatDelay,
-          ease: "linear",
+          ease: 'linear',
         },
         opacity: {
           duration: 0.3,
@@ -107,5 +111,5 @@ export function ShimmeringText({
     >
       {text}
     </motion.span>
-  )
+  );
 }

@@ -1,16 +1,17 @@
-# Aevori mit Freunden nutzen
+# Use Aevori with friends
 
-Der Team-Zugang ist implementiert und lokal getestet. Noch kein Tunnel, keine Domain und kein öffentlicher Port wurden aktiviert.
+Team access is implemented and tested locally. No tunnel, domain, or public port
+is enabled automatically.
 
-## Auf dem Haupt-Mac
+## On the main Mac
 
-1. Aevori und Ollama laufen lassen. Optional weitere Macs über den bestehenden Mac-Pool verbinden.
-2. Einen HTTPS-Reverse-Proxy oder einen HTTPS-Tunnel einrichten, dessen Ziel `127.0.0.1:5190` ist. Er muss den öffentlichen `Host` unverändert an Aevori weitergeben und `X-Forwarded-For` setzen. Andernfalls lehnt Aevori die Verbindung ab. Port 5190 bleibt lokal gebunden.
-3. In **Team → Deine HTTPS-Adresse** die tatsächliche Hauptadresse speichern, z. B. `https://aevori.example.com`. Die Adresse allein erstellt keinen Tunnel.
-4. Für jede Person unter **Freunde einladen** einen eigenen Namen und Link erzeugen. Den Link selbst an die betreffende Person senden. Der Fragment-Token landet nicht im HTTP-URL-Log.
-5. Die Person nimmt die Einladung im Browser an. Ein Link funktioniert einmal und 24 Stunden lang. Der Browser erhält eine sieben Tage gültige, nur serverseitig lesbare Sitzung. Bei Widerruf werden auch laufende Anfragen dieser Person gestoppt.
+1. Keep Aevori and Ollama running. Optionally connect more Macs through the Mac pool.
+2. Set up an HTTPS reverse proxy or tunnel forwarding to `127.0.0.1:5190`. It must preserve the public `Host` header and set `X-Forwarded-For`; otherwise Aevori rejects the connection. Port 5190 stays bound to loopback.
+3. Under **Team → Your HTTPS address**, save the actual base address, such as `https://aevori.example.com`. Saving an address does not create a tunnel.
+4. Under **Invite friends**, create a separate name and link for each person. Send the link to that person yourself. The invitation token is in the URL fragment, which is not sent in HTTP URL logs.
+5. The recipient accepts the invitation in their browser. Each link works once and expires after 24 hours. The browser receives a seven-day HttpOnly session cookie. Revoking access also stops that person's running requests.
 
-Caddy-Beispiel auf einem bereits eingerichteten Haupt-Mac mit erreichbarer Domain:
+Example Caddy configuration on a main Mac with an already configured, reachable domain:
 
 ```caddyfile
 aevori.example.com {
@@ -18,14 +19,26 @@ aevori.example.com {
 }
 ```
 
-Dieses Beispiel ist keine eingerichtete Bereitstellung. DNS, HTTPS und Netzwerkerreichbarkeit müssen zur verwendeten Umgebung passen. Bei einem externen Server muss der Rückweg zum Haupt-Mac über einen gesicherten Tunnel erfolgen. Ollama/11434 wird nicht öffentlich freigegeben.
+This example is not a deployed configuration. DNS, HTTPS, and network reachability
+must match your environment. An external proxy needs a secure tunnel back to the
+main Mac. Do not expose Ollama or port 11434 publicly.
 
-## Rechte und Daten
+## On a phone
 
-- Lokaler Haupt-Mac: Modelle, Verbindungen, Pool-Freigaben, Gerätewerte und Team verwalten.
-- Freunde: verfügbare Modelle und Pool nutzen, Präsenz und Nutzungsstatistiken sehen. Keine Prozessliste, App-Icons, Modellinstallation, Anbieter-Schlüssel oder Geräteeinstellungen. Privater Systemkontext ist serverseitig gesperrt.
-- Chats, Notizen und Aufgaben bleiben im jeweiligen Browser. Das Team sieht keine Nachrichteninhalte.
-- Nutzungsdaten sind tatsächliche Dauer und vom Anbieter gemeldete Tokens. Bei abgebrochener Antwort oder fehlenden Angaben steht „—“.
-- Bis zu zwei parallele Anfragen je Freund, vier beim Gastgeber. Der Pool verteilt ganze Anfragen; er vereint keinen GPU-/RAM-Speicher.
-- Im Download liegen Anmeldung und Einladungshashes unter `~/Library/Application Support/Aevori/`, bei `npm start` unter `.aevori/team-5190.json`; nie in `public` oder `dist`. Beim Kopieren des Projekts auf einen anderen Mac `.aevori` ausschließen.
-- Sitzungsablauf erfordert eine neue Einladung. Derzeit keine E-Mail-Anmeldung und keine automatischen E-Mails.
+Open your invitation using your workspace's HTTPS address. Aevori shows the
+Home Screen installation guide. On iPhone, use **Safari → Share → Add to Home
+Screen**, then open the new icon. Android browsers may offer **Install app**.
+Keep the host Mac, AEVORI, and your HTTPS route running. Your phone is a client;
+local AI still runs on the Mac. There is no public hosted AEVORI AI backend.
+
+## Permissions and data
+
+- The main Mac manages models, connections, pool sharing, device readings, and the team.
+- Friends can use available models and the pool, and see presence and usage statistics. They cannot access the process list, app icons, model installation, provider keys, or device settings. Private system context is blocked on the server.
+- Chats, notes, and tasks remain in each person's browser. The team does not see message content.
+- Usage reports show actual duration and provider-reported tokens. Missing values or interrupted responses show “—”.
+- Each friend can run up to two requests at once; the host can run four. The pool routes whole requests and does not combine GPU or RAM capacity.
+- In the downloadable edition, session and invitation hashes are stored in `~/Library/Application Support/Aevori/`; with `npm start`, they are in `.aevori/team-5190.json`. They never belong in `public` or `dist`. Exclude `.aevori` when copying a source checkout to another Mac.
+- An expired session needs a new invitation. Email sign-in and automatic emails are not supported.
+
+[Back to Aevori](README.md) · [Connect several Macs](docs/MAC-POOL.md)

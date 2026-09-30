@@ -1,29 +1,47 @@
-<p align="center"><img src="docs/media/aevori-banner.png" alt="AEVORI — Intelligence, locally. Your ideas. Your agent. Your Mac." width="1200" /></p>
+<p align="center"><img src="docs/media/aevori-code-banner.png" alt="AEVORI — Intelligence, locally. A thought. A few lines. A new beginning. JavaScript coding banner." width="1200" /></p>
 
 <p align="center">
-  <a href="https://github.com/Stxqq/aevori-app/releases/tag/v0.2.1">Download for macOS</a> ·
+  <a href="https://github.com/Stxqq/aevori-app/actions/workflows/ci.yml"><img src="https://github.com/Stxqq/aevori-app/actions/workflows/ci.yml/badge.svg?branch=main" alt="Build and test" /></a>
+  <a href="https://github.com/Stxqq/aevori-app/releases/tag/v0.3.0"><img src="https://img.shields.io/badge/preview-v0.3.0-454b57?style=flat" alt="Preview v0.3.0" /></a>
+  <a href="#get-started"><img src="https://img.shields.io/badge/macOS-Apple_silicon_%26_Intel-454b57?style=flat" alt="macOS: Apple silicon and Intel" /></a>
+  <a href="#your-workspace"><img src="https://img.shields.io/badge/interface-English-454b57?style=flat" alt="English interface" /></a>
+  <a href="LICENSE"><img src="https://img.shields.io/badge/license-MIT_code-454b57?style=flat" alt="MIT code; see license exclusions" /></a>
+  <a href="https://github.com/Stxqq/aevori-app/stargazers"><img src="https://img.shields.io/github/stars/Stxqq/aevori-app?style=flat&amp;color=454b57" alt="GitHub stars" /></a>
+</p>
+
+<p align="center">
+  <a href="https://github.com/Stxqq/aevori-app/releases/tag/v0.3.0">Download for macOS</a> ·
+  <a href="#see-aeri-reply">Watch the demo</a> ·
   <a href="#get-started">Get started</a> ·
   <a href="#your-workspace">Features</a> ·
   <a href="docs/PUBLICATION.md">Release review</a>
 </p>
 
-# Your own little corner of intelligence.
+# Local AI chat. A personal agent. Your Mac.
 
 AEVORI is a personal AI workspace that runs on your Mac and opens in your browser.
 Chat with local models, give your agent a character, save useful memories and turn
 ideas into notes and tasks. Smooth, quiet interactions. Your decisions stay yours.
 
-**Preview 0.2.1 · macOS · Local Ollama inference · German interface**
+**Preview 0.3.0 · macOS · Local Ollama inference · English interface**
+
+## See Aeri reply
+
+![Aeri receiving a message, showing its typing animation, and replying in English](docs/media/aevori-reply.gif)
+
+An actual in-app recording with a local Ollama model and a synthetic demo conversation.
+Playback keeps the original response timing and pauses on the result. Speed depends
+on your Mac and model. [View the still image](docs/media/aevori-agent-dark.png).
 
 ## Get started
 
-| Mac | Ready-to-run download |
-| --- | --- |
-| Apple silicon — M1, M2, M3, M4 or newer | [Download AEVORI for Apple silicon](https://github.com/Stxqq/aevori-app/releases/download/v0.2.1/AEVORI-0.2.1-macOS-arm64.zip) |
-| Intel | [Download AEVORI for Intel](https://github.com/Stxqq/aevori-app/releases/download/v0.2.1/AEVORI-0.2.1-macOS-x64.zip) |
+| Mac                                     | Ready-to-run download                                                                                                          |
+| --------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------ |
+| Apple silicon — M1, M2, M3, M4 or newer | [Download AEVORI for Apple silicon](https://github.com/Stxqq/aevori-app/releases/download/v0.3.0/AEVORI-0.3.0-macOS-arm64.zip) |
+| Intel                                   | [Download AEVORI for Intel](https://github.com/Stxqq/aevori-app/releases/download/v0.3.0/AEVORI-0.3.0-macOS-x64.zip)           |
 
 1. Download and unzip. Move the entire **Aevori** folder somewhere permanent.
-2. Open **Aevori starten.command**. AEVORI opens at **http://localhost:5190**.
+2. Open **Start Aevori.command**. AEVORI opens at **http://localhost:5190**.
 3. Keep its Terminal window open. Press **Control+C** there to stop the app.
 4. For local AI, install [Ollama](https://ollama.com/download) and a model, for example `ollama pull gemma3:4b`. Choose it in AEVORI.
 
@@ -63,8 +81,6 @@ A download cannot run a server just by clicking a website link. After launching,
   member workspaces. A Mac pool routes complete requests across connected hosts;
   it does not combine GPU memory.
 
-![AEVORI agent conversation with original character and rounded wordmark](docs/media/aevori-agent-dark.png)
-
 ## On your phone
 
 AEVORI includes a responsive PWA and an add-to-home-screen guide. The phone needs
@@ -98,7 +114,7 @@ npm run build
 npm run start:web
 ```
 
-For development: `npm run dev`. Validate with `npm test` and `npm run build`.
+For development: `npm run dev`. Validate with `npm run check` (formatting, strict types, tests and production build).
 Source `npm start` uses project-local `.aevori/` state; `start:web` uses Application
 Support. Keep the browser origin and state directory consistent when upgrading.
 
@@ -106,7 +122,7 @@ Support. Keep the browser origin and state directory consistent when upgrading.
 
 The release archive uses an explicit file allowlist, checks the official Node
 checksum, contains no user data and needs no npm dependencies at runtime.
-Build on macOS after `npm ci && npm test && npm run build`:
+Build on macOS after `npm ci && npm run check`:
 
 ```sh
 node scripts/notices.mjs
@@ -118,6 +134,13 @@ Automated tests cover streaming, input validation, image handling, model routing
 member isolation, invitations, memories, policies, agent messages and reminders.
 See [the scoped release review](docs/PUBLICATION.md) for what was actually checked
 and what still requires real devices or provider accounts.
+
+## Make it yours
+
+Try AEVORI, build something small, and tell us what worked.
+[Report a bug](https://github.com/Stxqq/aevori-app/issues) or read the
+[contribution guide](CONTRIBUTING.md) to help improve it.
+If you find it useful, a star helps other people discover the project.
 
 ## License and credits
 
