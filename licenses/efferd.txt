@@ -1,0 +1,11 @@
+Efferd App Shell 3 — Copyright Efferd LLC
+Source: https://efferd.com/blocks/app-shell
+Terms: https://efferd.com/terms (last updated September 15, 2026; reviewed September 30, 2026)
+
+The free app-shell block is adapted within AEVORI as an end-user application.
+Its terms allow installing, modifying and shipping projects, including commercial
+projects. They prohibit reselling/sharing/redistributing the Efferd library,
+registry or a substantial collection of blocks as a competing kit, template pack
+or marketplace listing; sharing account/registry tokens; removing notices or
+claiming authorship of the Efferd library. Free blocks are subject to the same
+terms. AEVORI does not relicense this block as MIT. Consult the linked full terms.

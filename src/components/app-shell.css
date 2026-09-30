@@ -1,0 +1,98 @@
+/* AEVORI's restrained shell, based on Efferd App Shell 3. */
+.aevori-shell.app{height:100dvh;min-height:0;max-width:none;width:100%;margin:0;padding:8px 8px 8px 0;position:relative;border:0;border-radius:0;box-shadow:none;background:var(--sidebar)}
+.aevori-shell .main-shell{min-width:0;min-height:0;margin:0!important;border:1px solid var(--border);border-radius:15px;overflow:hidden;box-shadow:0 2px 5px #00000005;background:var(--app)}
+.aevori-shell [data-slot=sidebar-container]{position:absolute;inset-block:0;padding:8px 0 8px 7px;height:100%;border:0}
+.aevori-shell [data-slot=sidebar-gap]{height:100%}
+.aevori-shell [data-slot=sidebar-inner]{background:transparent}
+.aevori-shell.glass-sidebar{background:var(--glass);backdrop-filter:blur(30px)}
+[data-slot=sidebar-content]{gap:10px;scrollbar-width:thin;scrollbar-color:var(--border) transparent;padding:0 7px}
+[data-slot=sidebar-header].shell-sidebar-header{padding:9px 14px 9px;gap:13px}
+.shell-brand{display:flex;align-items:center;justify-content:space-between;height:35px;gap:8px}
+.shell-brand .aevori-brand{width:116px;flex-shrink:0}
+.shell-brand .aevori-brand.symbol{width:30px;height:30px}
+.shell-icon-button{display:grid;place-items:center;width:32px;height:32px;padding:0;border:0;border-radius:8px;background:transparent;color:var(--muted);flex-shrink:0}
+.shell-icon-button:hover{color:var(--text);background:var(--hover)}
+[data-slot=sidebar-group]{padding:3px 7px}
+[data-slot=sidebar-menu]{gap:3px}
+[data-slot=sidebar-menu-button]{height:35px;justify-content:flex-start;gap:10px;padding:0 10px;border:1px solid transparent;border-radius:8px;background:transparent;font-size:13px;line-height:1.2;font-weight:600;color:var(--muted);box-shadow:none}
+[data-slot=sidebar-menu-button]:hover{background:var(--hover);color:var(--text)}
+[data-slot=sidebar-menu-button][data-active=true]{background:var(--raised);color:var(--text);font-weight:650;border-color:var(--border)}
+[data-slot=sidebar-menu-button]>.motion-icon,[data-slot=sidebar-menu-button]>svg{width:17px!important;height:17px!important;flex-shrink:0;color:currentColor;opacity:.85}
+[data-slot=sidebar-menu-button].shell-new-chat{color:var(--text);font-weight:650;padding-left:10px}
+.shell-nav-count{margin-left:auto;font-size:11px;font-weight:500;min-width:18px;text-align:center;color:var(--dim)}
+.shell-group-heading{display:flex;align-items:center;justify-content:space-between;gap:8px;width:100%;height:30px;padding:0 10px;margin:9px 0 5px;border:0;background:transparent;text-align:left;font-size:11px;font-weight:650;letter-spacing:.01em;color:var(--dim)}
+button.shell-group-heading:hover{color:var(--text)}
+.shell-group-heading>svg{transition:transform .2s;opacity:.65}
+.shell-group-heading[data-state=closed]>svg{transform:rotate(-90deg)}
+.shell-group-content{overflow:hidden}
+.shell-group-content[data-state=open]{animation:shell-expand .2s ease-out}
+.shell-group-content[data-state=closed]{animation:shell-collapse .18s ease-out}
+@keyframes shell-expand{from{height:0;opacity:0}to{height:var(--radix-collapsible-content-height);opacity:1}}
+@keyframes shell-collapse{from{height:var(--radix-collapsible-content-height);opacity:1}to{height:0;opacity:0}}
+.shell-chat-total{font-size:10px;font-weight:500}
+.shell-chats{margin-top:4px}
+.shell-chat-row{position:relative;min-width:0}
+.shell-chat-row [data-slot=sidebar-menu-button]{font-size:12px;font-weight:450;padding-right:27px;height:33px}
+.shell-chat-row [data-slot=sidebar-menu-button][data-active=true]{font-weight:550}
+.shell-chat-row [data-slot=sidebar-menu-button]>svg{width:14px!important;height:14px!important;opacity:.55}
+.shell-chat-delete{position:absolute;right:4px;top:4px;display:grid;place-items:center;border:0;border-radius:5px;background:transparent;color:var(--dim);width:25px;height:25px;opacity:0;pointer-events:none}
+.shell-chat-row:hover .shell-chat-delete,.shell-chat-row:focus-within .shell-chat-delete{opacity:1;pointer-events:auto}
+.shell-chat-delete:hover{background:var(--hover);color:var(--text)}
+.shell-empty-chats{font-size:11px;line-height:1.6;padding:5px 10px;color:var(--dim)}
+[data-slot=sidebar-footer].shell-sidebar-footer{padding:10px 14px 3px;gap:10px}
+.shell-profile{display:flex;justify-content:flex-start;gap:10px;min-width:0;width:100%;height:59px;border:0;border-top:1px solid var(--border);background:transparent;text-align:left;padding:13px 3px 4px}
+.shell-avatar{display:grid;place-items:center;flex-shrink:0;width:29px;height:29px;border-radius:50%;background:var(--raised);border:1px solid var(--border);font-size:12px;font-weight:650;color:var(--text)}
+.shell-profile-copy{flex:1;min-width:0}
+.shell-profile strong{display:block;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;font-size:12px;font-weight:650}
+.shell-profile small{display:block;font-size:10px;color:var(--dim);margin-top:3px}
+.shell-profile>svg{color:var(--dim);flex-shrink:0}
+.shell-toolbar{display:flex;align-items:center;justify-content:space-between;gap:16px;flex-shrink:0;height:56px;padding:0 20px;color:var(--text)}
+.shell-toolbar>div{display:flex;align-items:center;gap:12px;min-width:0}
+.shell-toolbar-divider{height:14px;width:1px;background:var(--border)}
+.shell-page-title{font-size:12px;font-weight:600;color:var(--muted)}
+.shell-connection{border:0;background:transparent;display:flex;align-items:center;gap:7px;font-size:11px;color:var(--dim);border-radius:7px;padding:7px 9px}
+.shell-connection:hover{color:var(--text);background:var(--raised)}
+.aevori-shell .workspace{min-height:0}
+.aevori-shell .main-content.view-chat{padding:0 clamp(18px,5vw,72px) 20px;display:flex;flex-direction:column}
+.aevori-shell .welcome{flex:1;min-height:140px;justify-content:center;padding:20px 0 44px}
+.aevori-shell .welcome-aevori{height:58px;margin:0 0 24px}
+.aevori-shell .welcome-aevori .aevori-brand.symbol{width:56px;height:56px;color:var(--dim);opacity:.65}
+.aevori-shell .welcome h1{font-size:clamp(24px,2.5vw,31px);font-weight:550;letter-spacing:-1px;line-height:1.25}
+.aevori-shell .welcome .suggestions{margin-top:27px;gap:8px}
+.aevori-shell .suggestions button{font-size:11px;border:1px solid var(--border);border-radius:9px;background:transparent;padding:10px 12px;color:var(--muted)}
+.aevori-shell .suggestions button:hover{color:var(--text);background:var(--raised)}
+.aevori-shell .original-composer-wrap{max-width:790px;padding-top:0}
+.aevori-shell .chat-companion-bar{max-width:800px;align-self:center;width:100%;margin-top:4px}
+.aevori-shell .conversation{max-width:800px}
+.aevori-shell .statusbar{border:0;background:transparent;height:26px;font-size:9px}
+[data-slot=sidebar][data-collapsible=icon] .shell-search,[data-slot=sidebar][data-collapsible=icon] .shell-group-heading,[data-slot=sidebar][data-collapsible=icon] .shell-chats,[data-slot=sidebar][data-collapsible=icon] .shell-profile-copy,[data-slot=sidebar][data-collapsible=icon] .shell-profile>svg,[data-slot=sidebar][data-collapsible=icon] .shell-nav-count{display:none}
+[data-slot=sidebar][data-collapsible=icon] [data-slot=sidebar-header],[data-slot=sidebar][data-collapsible=icon] [data-slot=sidebar-footer]{padding-inline:6px}
+[data-slot=sidebar][data-collapsible=icon] [data-slot=sidebar-content]{padding:0 3px;overflow-y:auto}
+[data-slot=sidebar][data-collapsible=icon] [data-slot=sidebar-group]{padding:3px}
+[data-slot=sidebar][data-collapsible=icon] .shell-brand,[data-slot=sidebar][data-collapsible=icon] .shell-profile{justify-content:center}
+[data-slot=sidebar][data-collapsible=icon] [data-slot=sidebar-menu-button]{justify-content:center;width:36px!important;height:36px!important;padding:8px!important}
+[data-slot=sidebar][data-collapsible=icon] [data-slot=sidebar-menu-button]>span:not(.motion-icon){display:none}
+[data-slot=sidebar][data-mobile=true]{width:min(290px,85vw);background:var(--sidebar);padding:10px 0 max(12px,env(safe-area-inset-bottom));color:var(--text)}
+@media(min-width:761px) and (max-width:767px){.aevori-shell>[data-slot=sidebar]{display:block}.aevori-shell [data-slot=sidebar-container]{display:flex}}
+@media(max-width:760px){
+ .aevori-shell.app{padding:0;background:var(--app)}
+ .aevori-shell .main-shell{border:0;border-radius:0}
+ .shell-toolbar{height:54px;padding:0 13px;gap:8px}
+ .shell-toolbar>div{gap:7px}
+ .shell-connection{font-size:10px;padding:7px 3px}
+ .shell-toolbar-divider{display:none}
+ .aevori-shell .main-content.view-chat{padding:0 16px 10px}
+ .aevori-shell .welcome{padding:10px 0 30px}
+ .aevori-shell .welcome h1{max-width:300px;font-size:27px}
+ .aevori-shell .welcome .suggestions{gap:7px;max-width:350px}
+ .aevori-shell .suggestions button{padding:9px 10px;font-size:10px}
+ .aevori-shell .suggestions button>svg:last-child{display:none}
+ .aevori-shell .welcome-aevori{margin-bottom:18px}
+ [data-slot=sidebar-menu-button]{height:40px;font-size:14px}
+ .shell-group-heading{height:32px;margin-top:12px}
+ .shell-chat-row [data-slot=sidebar-menu-button]{height:38px}
+ .shell-chat-delete{opacity:1;pointer-events:auto;top:6px}
+ .shell-profile{height:62px}
+}
+[data-motion=off] [data-slot=sheet-overlay],[data-motion=off] [data-slot=sidebar][data-mobile=true],[data-motion=off] .shell-group-content,[data-motion=off] .aevori-shell [data-slot=sidebar-container],[data-motion=off] .aevori-shell [data-slot=sidebar-gap]{animation:none!important;transition:none!important}
+@media(prefers-reduced-motion:reduce){.shell-group-content,[data-slot=sidebar-container],[data-slot=sidebar-gap],[data-slot=sheet-overlay],[data-slot=sidebar][data-mobile=true]{animation:none!important;transition:none!important}}

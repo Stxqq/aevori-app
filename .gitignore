@@ -1,0 +1,19 @@
+node_modules/
+dist/
+.env
+.env.*
+!.env.example
+*.log
+.DS_Store
+.aevori/
+previews/
+coverage/
+*.tsbuildinfo
+*.pem
+*.key
+
+# Legacy preview state is also private.
+.orbit/
+
+release/
+.runtime-cache/

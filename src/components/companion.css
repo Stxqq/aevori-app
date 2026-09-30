@@ -1,0 +1,22 @@
+.companion{display:inline-flex;flex-shrink:0;color:var(--text);perspective:500px}
+.companion svg{width:100%;height:100%;overflow:visible}
+.companion .companion-body{transform-origin:60px 95px;animation:character-idle 5.8s cubic-bezier(.45,0,.55,1) infinite;will-change:transform}
+.companion .companion-eyes{transform-origin:60px 57px;animation:character-blink 6.7s infinite}
+.companion .companion-face{animation:character-look 11s ease-in-out infinite;transform-origin:60px 62px}
+.companion .companion-shadow{transform-origin:60px 109px;animation:character-shadow 5.8s ease-in-out infinite}
+.companion.working .companion-body{animation:character-think 2.4s cubic-bezier(.45,0,.55,1) infinite}
+.companion.working .companion-face{animation:character-focus 3.6s ease-in-out infinite}
+.companion.working .companion-shadow{animation:character-shadow 2.4s ease-in-out infinite}
+.companion:hover .companion-body{animation:character-hello 1.2s ease-in-out}
+.companion .companion-tail{transform-origin:94px 86px;animation:character-tail 4.2s ease-in-out infinite}
+.companion.working .companion-antenna{animation:character-signal 1.7s ease-in-out infinite}
+@keyframes character-idle{0%,100%{transform:translateY(0) rotate(-1deg) scale(1,1)}50%{transform:translateY(-3px) rotate(1deg) scale(.985,1.012)}}
+@keyframes character-think{0%,100%{transform:translateY(0) rotate(-3deg)}50%{transform:translateY(-5px) rotate(3deg)}}
+@keyframes character-blink{0%,39%,43%,72%,76%,100%{transform:scaleY(1)}41%,74%{transform:scaleY(.08)}}
+@keyframes character-look{0%,30%,55%,100%{transform:translate(0,0)}36%,48%{transform:translate(2px,-1px)}70%,82%{transform:translate(-1.5px,0)}}
+@keyframes character-focus{0%,100%{transform:translate(0,-1px)}50%{transform:translate(2px,-3px)}}
+@keyframes character-shadow{0%,100%{transform:scaleX(1);opacity:.08}50%{transform:scaleX(.86);opacity:.045}}
+@keyframes character-hello{0%,100%{transform:rotate(0)}25%{transform:translateY(-4px) rotate(-7deg)}65%{transform:translateY(-3px) rotate(6deg)}}
+@keyframes character-tail{0%,100%{transform:rotate(-4deg)}50%{transform:rotate(9deg)}}
+@keyframes character-signal{50%{opacity:.6}}
+@media(prefers-reduced-motion:reduce){.companion *{animation:none!important;will-change:auto!important}}[data-motion=off] .companion *{animation:none!important;will-change:auto!important}
