@@ -1,5 +1,5 @@
 /* Never cache authenticated API responses, chats, credentials or invitations. */
-const CACHE='aevori-offline-v2';
+const CACHE='aevori-offline-v3';
 const PUBLIC_FILES=['/offline.html','/brand/aevori-192.png'];
 self.addEventListener('install',event=>event.waitUntil(caches.open(CACHE).then(cache=>cache.addAll(PUBLIC_FILES))));
 self.addEventListener('activate',event=>event.waitUntil(caches.keys().then(keys=>Promise.all(keys.filter(key=>key.startsWith('aevori-offline-')&&key!==CACHE).map(key=>caches.delete(key))))));

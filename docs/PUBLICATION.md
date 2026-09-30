@@ -1,6 +1,6 @@
-# Release review — AEVORI 0.2.0
+# Release review — AEVORI 0.2.x
 
-Reviewed on 2026-09-30. This records the checks performed; it is not a blanket
+Reviewed on 2026-09-30. The functionality checks below describe 0.2.0. For 0.2.1, all 36 tests and the production build passed again; rounded branding was visually checked in light/dark/mobile layouts and the new cloud disclosures were checked in the connection dialog. No browser console errors were observed. This records the checks performed; it is not a blanket
 claim that every feature, machine, provider or legal question has been verified.
 
 ## Functionality
@@ -32,15 +32,17 @@ private development history and releases are not included. `.aevori`, `.orbit`,
 API keys, private chat data, invitations, user uploads and model weights are
 excluded from source publication and downloadable archives.
 
-Unclear-rights material was replaced: the supplied wordmark, Apple CoreTypes
+In 0.2.0, unclear-rights material was replaced: the supplied wordmark, Apple CoreTypes
 product images, Iconly artwork, Meta Veda/Muse assets, and two imported components
 whose public metadata did not supply a usable source license. Old screenshots
 and videos containing these items are excluded as well.
 
-Original AEVORI code/artwork is MIT licensed; dependencies and imported code
+In 0.2.1, the supplied rounded wordmark and related symbol were restored at the project owner’s request. Their rights remain unverified and they are explicitly excluded from MIT, including derivatives in the banner and screenshots. See [META-REVIEW.md](META-REVIEW.md).
+
+Original AEVORI code/independently created artwork is MIT licensed; dependencies and imported code
 retain their own notices. The adapted free Efferd block remains subject to its
 terms, not AEVORI's MIT license. See [ASSETS.md](../ASSETS.md) and the full retained
-notices. Provider names/logos identify compatibility and do not imply endorsement.
+notices. Provider logos are removed in 0.2.1. Remaining provider names describe the API/model being configured; they do not assert endorsement or a trademark license.
 
 This technical provenance review cannot provide a legal guarantee. The AEVORI
 name has not received a comprehensive trademark clearance. Model licenses and

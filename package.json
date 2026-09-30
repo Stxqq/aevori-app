@@ -1,6 +1,6 @@
 {
   "name": "aevori-mac",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "private": true,
   "type": "module",
   "scripts": {
@@ -37,7 +37,7 @@
     "typescript": "^5.9.0",
     "vite": "^6.4.0"
   },
-  "description": "Aevori \u2014 Intelligence, locally. A personal AI workspace for macOS.",
+  "description": "Aevori — Intelligence, locally. A personal AI workspace for macOS.",
   "engines": {
     "node": ">=22.13.0"
   },

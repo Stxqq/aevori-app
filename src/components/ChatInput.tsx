@@ -4,7 +4,7 @@ import {ShimmeringText} from './ui/shimmering-text';
 import {ShieldCheck} from '../MotionIcon';
 import {IMAGE_TYPES,storeImage,discardImages,type PreparedAttachments,type ChatImage} from '../attachments';
 /** AEVORI input, connected to the streaming chat. */
-export default function ChatInput({value,onChange,onSend,busy,status,startedAt,onStop,modelSelect,caption}:{value:string;onChange:(s:string)=>void;onSend:(text:string,attachments?:PreparedAttachments)=>Promise<boolean>;busy:boolean;status:string;startedAt:number|null;onStop:()=>void;modelSelect:ReactNode;caption:string}){
+export default function ChatInput({value,onChange,onSend,busy,status,startedAt,onStop,modelSelect,caption}:{value:string;onChange:(s:string)=>void;onSend:(text:string,attachments?:PreparedAttachments)=>Promise<boolean>;busy:boolean;status:string;startedAt:number|null;onStop:()=>void;modelSelect:ReactNode;caption:ReactNode}){
  const [error,setError]=useState('');
  const [elapsed,setElapsed]=useState(0);
  useEffect(()=>{

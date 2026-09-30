@@ -200,7 +200,7 @@ body{background:var(--app)}
 /* AEVORI: original white wordmark, electric blue, quiet graphite surfaces. */
 :root{--accent:#a0aeff;--brand:#2222ff;--brand-soft:#777dff}
 [data-theme=light],[data-theme=sand]{--accent:#2424cf;--brand:#2222ff;--brand-soft:#2424cf}
-.aevori-brand{display:inline-flex;align-items:center;width:146px;aspect-ratio:240/52;vertical-align:middle;flex-shrink:0;background:transparent}
+.aevori-brand{display:inline-flex;align-items:center;width:146px;aspect-ratio:1880/385;vertical-align:middle;flex-shrink:0;background:transparent}
 .aevori-brand>svg{display:block;width:100%;height:100%;overflow:hidden}
 .aevori-brand.symbol{width:32px;aspect-ratio:1;color:var(--text)}
 .aevori-brand.symbol>img{display:block;width:100%;height:100%;filter:none!important}

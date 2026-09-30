@@ -1,7 +1,7 @@
 <p align="center"><img src="docs/media/aevori-banner.png" alt="AEVORI — Intelligence, locally. Your ideas. Your agent. Your Mac." width="1200" /></p>
 
 <p align="center">
-  <a href="https://github.com/Stxqq/aevori-app/releases/tag/v0.2.0">Download for macOS</a> ·
+  <a href="https://github.com/Stxqq/aevori-app/releases/tag/v0.2.1">Download for macOS</a> ·
   <a href="#get-started">Get started</a> ·
   <a href="#your-workspace">Features</a> ·
   <a href="docs/PUBLICATION.md">Release review</a>
@@ -13,14 +13,14 @@ AEVORI is a personal AI workspace that runs on your Mac and opens in your browse
 Chat with local models, give your agent a character, save useful memories and turn
 ideas into notes and tasks. Smooth, quiet interactions. Your decisions stay yours.
 
-**Preview 0.2.0 · macOS · Local Ollama inference · German interface**
+**Preview 0.2.1 · macOS · Local Ollama inference · German interface**
 
 ## Get started
 
 | Mac | Ready-to-run download |
 | --- | --- |
-| Apple silicon — M1, M2, M3, M4 or newer | [Download AEVORI for Apple silicon](https://github.com/Stxqq/aevori-app/releases/download/v0.2.0/AEVORI-0.2.0-macOS-arm64.zip) |
-| Intel | [Download AEVORI for Intel](https://github.com/Stxqq/aevori-app/releases/download/v0.2.0/AEVORI-0.2.0-macOS-x64.zip) |
+| Apple silicon — M1, M2, M3, M4 or newer | [Download AEVORI for Apple silicon](https://github.com/Stxqq/aevori-app/releases/download/v0.2.1/AEVORI-0.2.1-macOS-arm64.zip) |
+| Intel | [Download AEVORI for Intel](https://github.com/Stxqq/aevori-app/releases/download/v0.2.1/AEVORI-0.2.1-macOS-x64.zip) |
 
 1. Download and unzip. Move the entire **Aevori** folder somewhere permanent.
 2. Open **Aevori starten.command**. AEVORI opens at **http://localhost:5190**.
@@ -63,7 +63,7 @@ A download cannot run a server just by clicking a website link. After launching,
   member workspaces. A Mac pool routes complete requests across connected hosts;
   it does not combine GPU memory.
 
-![AEVORI agent conversation with original character and geometric wordmark](docs/media/aevori-agent-dark.png)
+![AEVORI agent conversation with original character and rounded wordmark](docs/media/aevori-agent-dark.png)
 
 ## On your phone
 
@@ -121,7 +121,7 @@ and what still requires real devices or provider accounts.
 
 ## License and credits
 
-Original AEVORI code and artwork are [MIT licensed](LICENSE). **Third-party
+Original AEVORI code and independently created artwork are [MIT licensed](LICENSE). **Third-party
 components retain separate terms**, especially the adapted free
 [Efferd app-shell-3](https://efferd.com/blocks/app-shell) block. This is an end-user
 application, not a redistributable component library. Credits and retained

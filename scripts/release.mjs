@@ -12,7 +12,7 @@ const version=JSON.parse(await readFile(path.join(root,'package.json'),'utf8')).
 const output=path.join(root,'release');await mkdir(output,{recursive:true});
 const stage=await mkdtemp(path.join(output,'.stage-'));
 const bundle=path.join(stage,'Aevori');await mkdir(bundle);
-for(const file of ['dist','server','shared','scripts/launch.mjs','package.json','Aevori starten.command','README.md','LICENSE','THIRD_PARTY_NOTICES.txt','ASSETS.md','licenses','ONLINE.md','SECURITY.md','docs/PUBLICATION.md','docs/MAC-POOL.md','docs/media/aevori-banner.png','docs/media/aevori-agent-dark.png']){
+for(const file of ['dist','server','shared','scripts/launch.mjs','package.json','Aevori starten.command','README.md','LICENSE','THIRD_PARTY_NOTICES.txt','ASSETS.md','licenses','ONLINE.md','SECURITY.md','docs/PUBLICATION.md','docs/META-REVIEW.md','docs/MAC-POOL.md','docs/media/aevori-banner.png','docs/media/aevori-agent-dark.png']){
  await cp(path.join(root,file),path.join(bundle,file),{recursive:true});
 }
 const cache=path.join(root,'.runtime-cache');await mkdir(cache,{recursive:true});
