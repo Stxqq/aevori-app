@@ -121,8 +121,11 @@ and what still requires real devices or provider accounts.
 
 ## License and credits
 
-Original AEVORI code and independently created artwork are [MIT licensed](LICENSE). **Third-party
-components retain separate terms**, especially the adapted free
+Original AEVORI code and independently created artwork are [MIT licensed](LICENSE).
+**The supplied rounded wordmark and its derivatives have unverified rights and
+are excluded from MIT.** See the [logo and Meta integration review](docs/META-REVIEW.md).
+
+**Third-party components retain separate terms**, especially the adapted free
 [Efferd app-shell-3](https://efferd.com/blocks/app-shell) block. This is an end-user
 application, not a redistributable component library. Credits and retained
 notices: [ASSETS.md](ASSETS.md), [THIRD_PARTY_NOTICES.txt](THIRD_PARTY_NOTICES.txt).
